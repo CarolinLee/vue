@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heeexy.example.dao.regulationMapper">
+  <resultMap id="BaseResultMap" type="com.heeexy.example.entity.regulation">
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="policyName" jdbcType="VARCHAR" property="policyname" />
+    <result column="policyCode" jdbcType="VARCHAR" property="policycode" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+    <result column="riskLevel" jdbcType="VARCHAR" property="risklevel" />
+    <result column="bizEffect" jdbcType="VARCHAR" property="bizeffect" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="source" jdbcType="VARCHAR" property="source" />
+    <result column="keyWord" jdbcType="VARCHAR" property="keyword" />
+    <result column="linkedBiz" jdbcType="VARCHAR" property="linkedbiz" />
+    <result column="linkedEcommerce" jdbcType="VARCHAR" property="linkedecommerce" />
+    <result column="bizModel" jdbcType="VARCHAR" property="bizmodel" />
+    <result column="alert" jdbcType="VARCHAR" property="alert" />
+    <result column="legalLevel" jdbcType="VARCHAR" property="legallevel" />
+    <result column="policyType" jdbcType="VARCHAR" property="policytype" />
+    <result column="categoryOne" jdbcType="VARCHAR" property="categoryone" />
+    <result column="categoryTwo" jdbcType="VARCHAR" property="categorytwo" />
+    <result column="categoryThree" jdbcType="VARCHAR" property="categorythree" />
+    <result column="releaseDate" jdbcType="DATE" property="releasedate" />
+    <result column="effectDate" jdbcType="DATE" property="effectdate" />
+    <result column="vattribute" jdbcType="VARCHAR" property="vattribute" />
+    <result column="f23" jdbcType="VARCHAR" property="f23" />
+    <result column="gl" jdbcType="VARCHAR" property="gl" />
+    <result column="action" jdbcType="VARCHAR" property="action" />
+    <result column="owner" jdbcType="VARCHAR" property="owner" />
+    <result column="addUser" jdbcType="VARCHAR" property="adduser" />
+    <result column="addTime" jdbcType="TIMESTAMP" property="addtime" />
+    <result column="editUser" jdbcType="VARCHAR" property="edituser" />
+    <result column="editTime" jdbcType="TIMESTAMP" property="edittime" />
+    <result column="isDelete" jdbcType="VARCHAR" property="isdelete" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="localPolicy" jdbcType="VARCHAR" property="localpolicy" />
+    <result column="keyPolicy" jdbcType="VARCHAR" property="keypolicy" />
+    <result column="qaqr" jdbcType="VARCHAR" property="qaqr" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.heeexy.example.entity.regulationWithBLOBs">
+    <result column="regulationId" jdbcType="LONGVARCHAR" property="regulationid" />
+    <result column="introduction" jdbcType="LONGVARCHAR" property="introduction" />
+    <result column="typicalProduct" jdbcType="LONGVARCHAR" property="typicalproduct" />
+    <result column="interpretation" jdbcType="LONGVARCHAR" property="interpretation" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    regulationId, introduction, typicalProduct, interpretation
+  </sql>
+  <insert id="insert" parameterType="com.heeexy.example.entity.regulationWithBLOBs">
+    insert into tregulation (number, policyName, policyCode, 
+      department, riskLevel, bizEffect, 
+      status, source, keyWord, 
+      linkedBiz, linkedEcommerce, bizModel, 
+      alert, legalLevel, policyType, 
+      categoryOne, categoryTwo, categoryThree, 
+      releaseDate, effectDate, vattribute, 
+      f23, gl, action, owner, 
+      addUser, addTime, editUser, 
+      editTime, isDelete, note, 
+      localPolicy, keyPolicy, qaqr, 
+      regulationId, introduction, typicalProduct, 
+      interpretation)
+    values (#{number,jdbcType=INTEGER}, #{policyname,jdbcType=VARCHAR}, #{policycode,jdbcType=VARCHAR}, 
+      #{department,jdbcType=VARCHAR}, #{risklevel,jdbcType=VARCHAR}, #{bizeffect,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{source,jdbcType=VARCHAR}, #{keyword,jdbcType=VARCHAR}, 
+      #{linkedbiz,jdbcType=VARCHAR}, #{linkedecommerce,jdbcType=VARCHAR}, #{bizmodel,jdbcType=VARCHAR}, 
+      #{alert,jdbcType=VARCHAR}, #{legallevel,jdbcType=VARCHAR}, #{policytype,jdbcType=VARCHAR}, 
+      #{categoryone,jdbcType=VARCHAR}, #{categorytwo,jdbcType=VARCHAR}, #{categorythree,jdbcType=VARCHAR}, 
+      #{releasedate,jdbcType=DATE}, #{effectdate,jdbcType=DATE}, #{vattribute,jdbcType=VARCHAR}, 
+      #{f23,jdbcType=VARCHAR}, #{gl,jdbcType=VARCHAR}, #{action,jdbcType=VARCHAR}, #{owner,jdbcType=VARCHAR}, 
+      #{adduser,jdbcType=VARCHAR}, #{addtime,jdbcType=TIMESTAMP}, #{edituser,jdbcType=VARCHAR}, 
+      #{edittime,jdbcType=TIMESTAMP}, #{isdelete,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, 
+      #{localpolicy,jdbcType=VARCHAR}, #{keypolicy,jdbcType=VARCHAR}, #{qaqr,jdbcType=VARCHAR}, 
+      #{regulationid,jdbcType=LONGVARCHAR}, #{introduction,jdbcType=LONGVARCHAR}, #{typicalproduct,jdbcType=LONGVARCHAR}, 
+      #{interpretation,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.heeexy.example.entity.regulationWithBLOBs">
+    insert into tregulation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        number,
+      </if>
+      <if test="policyname != null">
+        policyName,
+      </if>
+      <if test="policycode != null">
+        policyCode,
+      </if>
+      <if test="department != null">
+        department,
+      </if>
+      <if test="risklevel != null">
+        riskLevel,
+      </if>
+      <if test="bizeffect != null">
+        bizEffect,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="source != null">
+        source,
+      </if>
+      <if test="keyword != null">
+        keyWord,
+      </if>
+      <if test="linkedbiz != null">
+        linkedBiz,
+      </if>
+      <if test="linkedecommerce != null">
+        linkedEcommerce,
+      </if>
+      <if test="bizmodel != null">
+        bizModel,
+      </if>
+      <if test="alert != null">
+        alert,
+      </if>
+      <if test="legallevel != null">
+        legalLevel,
+      </if>
+      <if test="policytype != null">
+        policyType,
+      </if>
+      <if test="categoryone != null">
+        categoryOne,
+      </if>
+      <if test="categorytwo != null">
+        categoryTwo,
+      </if>
+      <if test="categorythree != null">
+        categoryThree,
+      </if>
+      <if test="releasedate != null">
+        releaseDate,
+      </if>
+      <if test="effectdate != null">
+        effectDate,
+      </if>
+      <if test="vattribute != null">
+        vattribute,
+      </if>
+      <if test="f23 != null">
+        f23,
+      </if>
+      <if test="gl != null">
+        gl,
+      </if>
+      <if test="action != null">
+        action,
+      </if>
+      <if test="owner != null">
+        owner,
+      </if>
+      <if test="adduser != null">
+        addUser,
+      </if>
+      <if test="addtime != null">
+        addTime,
+      </if>
+      <if test="edituser != null">
+        editUser,
+      </if>
+      <if test="edittime != null">
+        editTime,
+      </if>
+      <if test="isdelete != null">
+        isDelete,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="localpolicy != null">
+        localPolicy,
+      </if>
+      <if test="keypolicy != null">
+        keyPolicy,
+      </if>
+      <if test="qaqr != null">
+        qaqr,
+      </if>
+      <if test="regulationid != null">
+        regulationId,
+      </if>
+      <if test="introduction != null">
+        introduction,
+      </if>
+      <if test="typicalproduct != null">
+        typicalProduct,
+      </if>
+      <if test="interpretation != null">
+        interpretation,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="number != null">
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="policyname != null">
+        #{policyname,jdbcType=VARCHAR},
+      </if>
+      <if test="policycode != null">
+        #{policycode,jdbcType=VARCHAR},
+      </if>
+      <if test="department != null">
+        #{department,jdbcType=VARCHAR},
+      </if>
+      <if test="risklevel != null">
+        #{risklevel,jdbcType=VARCHAR},
+      </if>
+      <if test="bizeffect != null">
+        #{bizeffect,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null">
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="keyword != null">
+        #{keyword,jdbcType=VARCHAR},
+      </if>
+      <if test="linkedbiz != null">
+        #{linkedbiz,jdbcType=VARCHAR},
+      </if>
+      <if test="linkedecommerce != null">
+        #{linkedecommerce,jdbcType=VARCHAR},
+      </if>
+      <if test="bizmodel != null">
+        #{bizmodel,jdbcType=VARCHAR},
+      </if>
+      <if test="alert != null">
+        #{alert,jdbcType=VARCHAR},
+      </if>
+      <if test="legallevel != null">
+        #{legallevel,jdbcType=VARCHAR},
+      </if>
+      <if test="policytype != null">
+        #{policytype,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryone != null">
+        #{categoryone,jdbcType=VARCHAR},
+      </if>
+      <if test="categorytwo != null">
+        #{categorytwo,jdbcType=VARCHAR},
+      </if>
+      <if test="categorythree != null">
+        #{categorythree,jdbcType=VARCHAR},
+      </if>
+      <if test="releasedate != null">
+        #{releasedate,jdbcType=DATE},
+      </if>
+      <if test="effectdate != null">
+        #{effectdate,jdbcType=DATE},
+      </if>
+      <if test="vattribute != null">
+        #{vattribute,jdbcType=VARCHAR},
+      </if>
+      <if test="f23 != null">
+        #{f23,jdbcType=VARCHAR},
+      </if>
+      <if test="gl != null">
+        #{gl,jdbcType=VARCHAR},
+      </if>
+      <if test="action != null">
+        #{action,jdbcType=VARCHAR},
+      </if>
+      <if test="owner != null">
+        #{owner,jdbcType=VARCHAR},
+      </if>
+      <if test="adduser != null">
+        #{adduser,jdbcType=VARCHAR},
+      </if>
+      <if test="addtime != null">
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="edituser != null">
+        #{edituser,jdbcType=VARCHAR},
+      </if>
+      <if test="edittime != null">
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isdelete != null">
+        #{isdelete,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="localpolicy != null">
+        #{localpolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="keypolicy != null">
+        #{keypolicy,jdbcType=VARCHAR},
+      </if>
+      <if test="qaqr != null">
+        #{qaqr,jdbcType=VARCHAR},
+      </if>
+      <if test="regulationid != null">
+        #{regulationid,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="typicalproduct != null">
+        #{typicalproduct,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="interpretation != null">
+        #{interpretation,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="countRegulation" resultType="Integer">
+    SELECT count(0)
+    FROM tregulation rg
+    WHERE rg.isdelete = '0'
+    AND 1=1
+    <if test="policyName != null and policyName != ''">
+      and rg.policyName like '%${policyName}%'
+    </if>
+    <if test="policyCode != null and policyCode != ''">
+      and rg.policyCode  like '%${policyCode}%'
+    </if>
+    <if test="department != null and department != ''">
+      and rg.department like '%${department}%'
+    </if>
+    <if test="riskLevel != null and riskLevel != ''">
+      and rg.riskLevel like '%${riskLevel}%'
+    </if>
+    <if test="status != null and status != ''">
+      and rg.status like '%${status}%'
+    </if>
+    <if test="source != null and source != ''">
+      and rg.source like '%${source}%'
+    </if>
+    <if test="bizEffect != null and bizEffect != ''">
+      and rg.bizEffect like '%${bizEffect}%'
+    </if>
+    <if test="linkedBiz =='1'.toString() ">
+      and rg.linkedBiz ="Y"
+    </if>
+    <if test="linkedEcommerce =='1'.toString() ">
+      and rg.linkedEcommerce ="Y"
+    </if>
+    <if test="filter =='1'.toString() ">
+      and rg.localPolicy ="Y"
+    </if>
+    <if test="filter =='2'.toString() ">
+      and rg.keyPolicy ="Y"
+    </if>
+    <if test="filter =='3'.toString() ">
+      and rg.qaqr ="Y"
+    </if>
+    <if test="sort != null and sort !=''">
+      ORDER BY ${sort}
+    </if>
+    <if test="order != null and order !=''">
+      ${order}
+    </if>
+  </select>
+
+  <select id="listRegulation" resultType="com.alibaba.fastjson.JSONObject">
+    SELECT
+      rg.regulationId,
+      rg.number,
+      rg.policyName,
+      rg.policyCode,
+      rg.department,
+      rg.riskLevel,
+      rg.bizEffect,
+      rg.`status`,
+      rg.source,
+      rg.keyWord,
+      rg.linkedBiz,
+      rg.linkedEcommerce,
+      rg.bizModel,
+      rg.alert,
+      rg.legalLevel,
+      rg.policyType,
+      rg.categoryOne,
+      rg.categoryTwo,
+      rg.categoryThree,
+      rg.introduction,
+      rg.releaseDate,
+      rg.effectDate,
+      rg.typicalProduct,
+      rg.f23,
+      rg.gl,
+      rg.action,
+      rg.`addUser`,
+      rg.addTime,
+      rg.`editUser`,
+      rg.editTime,
+      rg.`owner` ,
+      rg.localPolicy,
+      rg.keyPolicy,
+      rg.qaqr,
+      rg.interpretation
+    FROM
+      tregulation rg
+    WHERE
+      1 = 1 and rg.isdelete = '0'
+    LIMIT #{offSet}, #{pageRow}
+  </select>
+
+  <select id="searchRegulation" resultType="com.alibaba.fastjson.JSONObject">
+    SELECT
+      rg.regulationId,
+      rg.number,
+      rg.policyName,
+      rg.policyCode,
+      rg.department,
+      rg.riskLevel,
+      rg.bizEffect,
+      rg.`status`,
+      rg.source,
+      rg.keyWord,
+      rg.linkedBiz,
+      rg.linkedEcommerce,
+      rg.bizModel,
+      rg.alert,
+      rg.legalLevel,
+      rg.policyType,
+      rg.categoryOne,
+      rg.categoryTwo,
+      rg.categoryThree,
+      rg.introduction,
+      rg.releaseDate,
+      rg.effectDate,
+      rg.typicalProduct,
+      rg.f23,
+      rg.gl,
+      rg.action,
+      rg.`addUser`,
+      rg.addTime,
+      rg.`editUser`,
+      rg.editTime,
+      rg.`owner` ,
+      rg.localPolicy,
+      rg.keyPolicy,
+      rg.qaqr,
+      rg.interpretation
+    FROM
+      tregulation rg
+    WHERE
+      1 = 1 and rg.isdelete = '0'
+    <if test="policyName != null and policyName != ''">
+      and rg.policyName like '%${policyName}%'
+    </if>
+    <if test="policyCode != null and policyCode != ''">
+      and rg.policyCode  like '%${policyCode}%'
+    </if>
+    <if test="department != null and department != ''">
+      and rg.department like '%${department}%'
+    </if>
+    <if test="riskLevel != null and riskLevel != ''">
+      and rg.riskLevel like '%${riskLevel}%'
+    </if>
+    <if test="status != null and status != ''">
+      and rg.status like '%${status}%'
+    </if>
+    <if test="source != null and source != ''">
+      and rg.source like '%${source}%'
+    </if>
+    <if test="bizEffect != null and bizEffect != ''">
+      and rg.bizEffect like '%${bizEffect}%'
+    </if>
+    <if test="linkedBiz =='1'.toString() ">
+      and rg.linkedBiz ="Y"
+    </if>
+    <if test="linkedEcommerce =='1'.toString() ">
+      and rg.linkedEcommerce ="Y"
+    </if>
+    <if test="filter =='1'.toString() ">
+      and rg.localPolicy ="Y"
+    </if>
+    <if test="filter =='2'.toString() ">
+      and rg.keyPolicy ="Y"
+    </if>
+    <if test="filter =='3'.toString() ">
+      and rg.qaqr ="Y"
+    </if>
+    <if test="sort != null and sort !=''">
+      ORDER BY ${sort}
+    </if>
+    <if test="order != null and order !=''">
+      ${order}
+    </if>
+    LIMIT #{offSet}, #{pageRow}
+  </select>
+</mapper>
