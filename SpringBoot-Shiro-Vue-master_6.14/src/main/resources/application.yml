@@ -1,0 +1,12 @@
+spring:
+  datasource:
+      #CN-5CG7321F4T.ant.amazon.com
+      #u22f78f09143959.ant.amazon.com
+      #mwzdb.cnwvpad8ifjb.us-east-1.rds.amazonaws.com
+      #url: jdbc:mysql://10.92.138.27:3306/example?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      url: jdbc:mysql://u22f78f09143959.ant.amazon.com:3306/example?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
+      username: mwz
+      password: 123456
+
+mybatis:
+   mapperLocations: classpath:/mapper/*.xml
