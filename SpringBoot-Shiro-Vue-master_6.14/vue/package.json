@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
-    "axios": "0.17.1",
+    "axios": "0.21.1",
     "element-ui": "2.3.4",
     "install": "^0.12.2",
     "js-cookie": "2.2.0",
@@ -80,7 +80,7 @@
     "webpack": "^3.8.0",
     "webpack-bundle-analyzer": "^3.3.2",
     "webpack-merge": "4.1.1",
-    "axios" : "^0.18.0"
+    "axios" : "^0.21.1"
   },
   "engines": {
     "node": ">= 4.0.0",
